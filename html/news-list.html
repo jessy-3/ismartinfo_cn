@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+	<title>新闻中心-依智慧聪</title>
+    <link rel="shortcut icon" href="/img/logo.ico">
+	<link rel="stylesheet" href="/css/public.css">
+	<link rel="stylesheet" href="/css/common.css">
+	<link rel="stylesheet" href="/css/news.css">
+
+</head>
+<body>
+<div class="container-fluid is-nav">
+    <div class="container">
+        <div class="col-xs-3">
+            <a class="logo" href="/index.html">
+                <img src="/img/Logo.png" alt="logo">
+            </a>
+        </div>
+        <ul class="col-xs-7 col-xs-offset-2 nav">
+            <li class="col-xs-2 text-center"><a href="/index.html">首页</a></li>
+            <li class="col-xs-2 text-center"><a class="active" href="/html/news-list.html">新闻中心</a></li>
+            <li class="col-xs-2 text-center"><a href="/html/product.html">产品相关</a></li>
+            <li class="col-xs-2 text-center"><a href="/html/partner.html">合作伙伴</a></li>
+            <li class="col-xs-2 text-center"><a href="/html/aboutUs.html">关于我们</a></li>
+        </ul>
+    </div>
+</div>
+<div class="container-fluid is-content">
+    <div class="container news-list-wrap">
+        <div class="under-line-title">
+            <h2>新闻中心</h2>
+        </div>
+        <div class="row news-list" id="news-list">
+
+        </div>
+	</div>
+
+    <div class="pages text-center">
+        <div class="col-xs-4 col-xs-offset-4">
+            <div class="col-xs-2  col-xs-offset-4 pre-page" id="pre-page" onclick="next(-1)">前一页</div>
+            <ul class="col-xs-1">
+                <li><a class="page-btn active" href="?1" onclick="render_page(1)">1</a></li>
+                <li><a class="page-btn" href="?2" onclick="render_page(2)">2</a></li>
+            </ul>
+            <div class="col-xs-2 next-page" id="next-page" onclick="next(1)">后一页</div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid is-footer">
+    <div class="text-center">
+        <div class="col-xs-12 is-footer-top">
+        	<p>
+                <b class="http">service@ismartinfo.com.cn</b>
+        		<br>
+        		+86 10  5625  2527
+        	</p>
+        </div>
+        <div class="col-xs-12 is-footer-bottom">
+        	<p>
+				依智信息 &copy; 2012-2017 All Rights Reserved
+        		<br>
+                京ICP备15006067号-2<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255080999'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1255080999%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+        	</p>
+        </div>
+    </div>
+</div>
+</body>
+<script src="/js/news.js"></script>
+<script>
+//    location.href = "#1";
+    var prePage = document.getElementById('pre-page'),
+        nextPage = document.getElementById('next-page'),
+        newsList = document.getElementById('news-list'),
+        pageBtns = document.getElementsByClassName('page-btn'),
+        url = location.href, num = url.indexOf("?"),str = url.substr(num + 1),
+        hash = str === '' ? 1 : parseInt(str);
+    if(isNaN(hash)){
+        hash = 1;
+    }
+    if(hash ===2){
+        nextPage.style.cursor = "default";
+    }else{
+        nextPage.style.cursor = "pointer";
+    }
+    if(hash ===1){
+        prePage.style.cursor = "default";
+    }else{
+        prePage.style.cursor = "pointer";
+    }
+    render_page(hash);
+    function next(a) {
+        var url = location.href, num1 = url.indexOf("?"),str = url.substr(num1 + 1),
+            num = str === '' ? 1 : parseInt(str);
+        if(isNaN(num)){
+            num = 1;
+        }
+        if(num+a >=2){
+            nextPage.style.cursor = "default";
+        }else{
+            nextPage.style.cursor = "pointer";
+        }
+        if(num+a <=1){
+            prePage.style.cursor = "default";
+        }else{
+            prePage.style.cursor = "pointer";
+        }
+        if(num+a <= 2 && num+a >=1){
+            location.href = "?"+(num+a);
+//            render_page(num+a);
+        }
+    }
+    function render_page(page) {
+        if(page > 2 || page <1){
+            history.go(-1);
+        }
+        btn_active(page);
+        var news_list = data.news.news_list,html='';
+        for(var i = (page-1)*3;i<page*3;i++){
+            var item = news_list[i];
+            if(page*3 <= news_list.length){
+                html += '<div class="col-xs-4 news-item">';
+                html += '<a href="/html/news-content.html?'+item.id+'"><img src="'+item.src+'" alt="新闻图片"></a>';
+                html += '<div class="row item-title">';
+                html += '<div class="col-xs-2 text-center day">'+item.day+'</div>';
+                html += '<div class="col-xs-2 year">';
+                html += '<i></i>';
+                html += '<span>'+item.month+' <br>'+item.year+' </span> </div>';
+                html += '<a href="/html/news-content.html?'+item.id+'"><div class="col-xs-8 title">'+item.title+'</div></a>';
+                html += '</div> <p>'+item.desc+'</p> </div>'
+            }
+        }
+        newsList.innerHTML = html;
+    }
+    function btn_active(hash) {
+        for(var j=0;j<pageBtns.length;j++){
+            pageBtns[j].setAttribute('class','page-btn');
+        }
+        pageBtns[hash-1].setAttribute('class','page-btn active');
+    }
+    
+</script>
+</html>

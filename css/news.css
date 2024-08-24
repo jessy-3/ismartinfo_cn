@@ -1,0 +1,119 @@
+.news-list-wrap{
+    padding-top: 52px;
+    min-height: 700px;
+}
+.news-list-wrap .row{
+    margin-right: 0;
+    margin-left: 0;
+}
+.news-list{
+    margin-top: 36px;
+}
+.news-item{
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    width: 30.333%;
+    margin-bottom: 60px;
+}
+.news-item img{
+    width: 100%;
+    margin-bottom: 28px;
+}
+.news-item .item-title{
+    height: 48px;
+}
+.news-item .day{
+    font-size: 42px;
+    letter-spacing: 5px;
+    font-weight: 700;
+    color: #ff6c00;
+}
+.news-item .year span{
+    display: inline-block;
+    font-size: 16px;
+    color: #999;
+    line-height: 22px;
+    padding-left: 8px;
+}
+.news-item .year i{
+    border-left: 1px solid #999;
+    display: inline-block;
+    height: 36px;
+    position: relative;
+    top: 2px;
+}
+.news-item .title{
+    font-size: 18px;
+    line-height: 24px;
+    color: #333;
+    font-weight: 400;
+}
+.news-item p{
+    font-size: 18px;
+    color: #999;
+    line-height: 30px;
+    font-weight: 400;
+    margin-top: 32px;
+}
+.pages{
+    margin-bottom: 40px;
+}
+.pages .pre-page,.pages .next-page{
+    color: #666;
+    cursor: pointer;
+}
+.pages ul li{
+    float: left;
+    width: 50%;
+}
+.pages ul li a{
+    line-height: 20px;
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    color: #333;
+}
+.pages ul li a:hover,.pages ul li a:focus,.pages ul li a:active,.pages ul li a.active{
+    color: #ff6c00
+}
+/*新闻详情*/
+.new-banner {
+    width: 1170px;
+    margin: 0;
+}
+.new-banner img{
+    width: 100%;
+}
+.new-banner p{
+    line-height: 52px;
+    margin-bottom: 20px;
+}
+.article{
+    color: #3e476e;
+    margin-bottom: 100px;
+}
+.article-btn{
+    cursor: pointer;
+}
+.article-title{
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 26px;
+}
+.article-son-title{
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 26px;
+}
+.article-content{
+    font-size: 18px;
+    line-height: 40px;
+}
+.article-footer{
+    margin-top: 46px;
+    font-size: 20px;
+    font-weight: 400;
+}
+.indent-2em{
+    padding-left: 2em;
+}

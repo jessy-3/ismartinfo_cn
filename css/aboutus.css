@@ -1,0 +1,50 @@
+.about-line-wrap {
+    height: 206px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.about-line-wrap .col-xs-offset-1 {
+    margin-left: 10.333333%;
+}
+
+.about-line-wrap div {
+    position: relative;
+    z-index: 10;
+}
+
+.about-line-down {
+    top: 50px;
+}
+
+.about-line {
+    display: block;
+    border-bottom: 1px dashed #333;
+    position: relative;
+    top: 94px;
+    z-index: 2;
+}
+
+.intro-aboutus {
+    width: 636px;
+    margin-right: auto;
+    margin-left: auto;
+    color: #4e4e4e;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+    margin-bottom: 100px;
+}
+
+.aboutus-map {
+    height: 364px;
+    /*width: 1010px;*/
+    padding-top: 146px;
+    padding-left: 170px;
+    background: url("/img/About-address-map.jpg") center 0 no-repeat;
+    /*background-size: cover;*/
+}
+
+.aboutus-map img {
+    height: 209px;
+}

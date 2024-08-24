@@ -1,0 +1,104 @@
+
+/*首页*/
+
+.banner{
+	padding-top: 190px;
+	height: 436px;
+}
+.banner h1{
+	margin-right: auto;
+	margin-left: auto;
+	font-size: 50px;
+	font-weight: 400;
+	width: 670px;
+	border-bottom: 1px dashed #f7f7f7;
+	padding-bottom: 28px;
+	margin-bottom: 28px;
+}
+.banner p{
+	font-size: 28px;
+	line-height: 52px;
+}
+.know-more-wrap{
+	padding-bottom: 126px;
+	/*overflow: hidden;*/
+}
+.konw-more .konw-more-left{
+	margin-left: 10%;
+	margin-right: 4%;
+}
+.konw-more .konw-more-right{
+	margin-left: 4%;
+}
+.konw-more .col-xs-5{
+	/*margin-left: 4%;*/
+	/*margin-right: 4%;*/
+	width: 36.666667%;
+	background-color: #fafafa;
+}
+.konw-more img{
+	width:100%;
+}
+
+.konw-more-btn-wrap{
+	height:  72px;
+	line-height: 72px;
+	margin-top: 0;
+}
+.konw-more-btn-wrap .btn{
+	padding: 8px 12px;
+	color: #fff;
+}
+.blue-btn{
+	background-color: #28b3e0;
+
+}
+.organge-btn{
+	background-color: #f99803;
+}
+
+.introduce-wrap{
+	background-color: #000;
+}
+.introduce-wrap .container{
+	padding-right: 0;
+	padding-left: 0;
+	width: 1200px;
+}
+.introduce-wrap img{
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

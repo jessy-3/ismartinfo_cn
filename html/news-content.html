@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <title id="detail-title"></title>
+    <link rel="shortcut icon" href="/img/logo.ico">
+    <link rel="stylesheet" href="/css/public.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/news.css">
+</head>
+<body>
+<div class="container-fluid is-nav">
+    <div class="container">
+        <div class="col-xs-3">
+            <a class="logo" href="/index.html">
+                <img src="/img/Logo.png" alt="logo">
+            </a>
+        </div>
+        <ul class="col-xs-7 col-xs-offset-2 nav">
+            <li class="col-xs-2 text-center"><a href="/index.html">首页</a></li>
+            <li class="col-xs-2 text-center"><a class="active" href="/html/news-list.html">新闻中心</a></li>
+            <li class="col-xs-2 text-center"><a href="/html/product.html">产品相关</a></li>
+            <li class="col-xs-2 text-center"><a href="/html/partner.html">合作伙伴</a></li>
+            <li class="col-xs-2 text-center"><a href="/html/aboutUs.html">关于我们</a></li>
+        </ul>
+    </div>
+</div>
+<div class="container-fluid is-content">
+    <div class="container article">
+        <div class="new-banner row">
+            <img id="news-banner" src="/img/news/News2-banner.jpg" alt="">
+            <p class="article-btn">
+                <span class="pull-left" onclick="goBack()" href="">返回</span>
+                <span class="push-right" onclick="next(1)" href="">下一篇</span>
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <h2 class="text-center article-title" id="article-title"></h2>
+                <h3 class="text-left article-son-title" id="article-son-title">这是作者（or 副标题）</h3>
+                <p class="article-content" id="article-content">
+                    <span class="indent-2em"></span>自2012年就致力于互联网+汽车后市场创新，将国外先进理念和前沿技术与国内汽车后市场现状相结合，不断打破移动出行、二手车处置、汽车配件流通等领域的传统禁锢，促进了行业快速发展。
+                </p>
+                <p class="article-footer text-right" id="article-footer">
+                    2017.12.04
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid is-footer">
+    <div class="text-center">
+        <div class="col-xs-12 is-footer-top">
+            <p>
+                 <b
+                    class="http">service@ismartinfo.com.cn</b>
+                <br>
+                +86 10 5625 2527
+            </p>
+        </div>
+        <div class="col-xs-12 is-footer-bottom">
+            <p>
+                依智信息 &copy; 2012-2017 All Rights Reserved
+                <br>
+                京ICP备15006067号-2<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255080999'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1255080999%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+<script src="/js/news.js"></script>
+<script>
+    function goBack() {
+        history.go(-1)
+    }
+    function next(a) {
+        var url = location.href, num = url.indexOf("?"),str = url.substr(num + 1),
+            hash = str === '' ? 1 : parseInt(str);
+        if(isNaN(hash)){
+            hash = 1;
+        }
+
+        var index = id_arr.indexOf(hash);
+        if (index + 1 < id_arr.length) {
+            render_news(id_arr[index + 1]);
+            location.href = "?" + (id_arr[index + 1])
+        }
+    }
+    var news_banner = document.getElementById('news-banner'),   //banner图
+        page_title = document.getElementById('detail-title'),   //标题
+        title = document.getElementById('article-title'),   //标题
+        son_title = document.getElementById('article-son-title'),   //副标题
+        article_content = document.getElementById('article-content'),   //文章内容
+        article_footer = document.getElementById('article-footer');     //文章脚
+    var href = location.href, num = href.indexOf("?"),str = href.substr(num + 1),
+        hash_id = str === '' ? 1 : parseInt(str);
+    if(isNaN(hash_id)){
+        hash_id = 1;
+    }
+    render_news(hash_id);
+    function render_news(id) {
+        if(id>6 || id < 1){
+            goBack()
+        }
+//        console.log(id);
+        var news_detail = data.news_detail[id];
+        news_banner.innerHTML = news_detail.src;
+        page_title.innerHTML = news_detail.title;
+        title.innerHTML = news_detail.title;
+        son_title.innerHTML = news_detail.son_title;
+        article_content.innerHTML = news_detail.article_content;
+        article_footer.innerHTML = news_detail.date;
+
+    }
+</script>
+</html>
